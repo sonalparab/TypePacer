@@ -1,0 +1,262 @@
+/* General CSS */
+.textField{
+    border: none;
+    border-bottom: solid 3px lightgreen;
+    transition: border .5s ease;
+}
+
+.textField:focus{
+    border: solid 5px green;
+}
+
+.textField:hover:not(:focus){
+    border-bottom: solid 5px lightgreen;
+}
+
+.textField:not(:focus){
+    border-bottom: solid 3px lightgreen;
+}
+
+.squashButton{
+    background-color: white;
+    color: crimson; 
+    transition: 0.5s ease;
+}
+
+.squashButton:hover, .squashButton:active, .squashButton:focus, .squashButton:active:focus, .squashButton:hover:focus, .squashButton:focus:hover{
+    background-color: crimson;
+    color: #ffffff; 
+}
+
+.tomatoImage{
+    width: 40px;
+}
+
+.tomatoButton:hover, .tomatoButton:focus{
+    transition: .5s ease;
+    background-color:lightgreen;
+    color: white;
+}
+
+.tomatoButton:not(:focus), .tomatoButton:not(:hover){
+    border: solid 1px green;
+}
+
+
+/* Pages CSS */
+.welcome{
+    padding-top: 0px;
+    background: url("../images/fuyuki.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.search{
+    background: url("../images/guilty.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.book{
+    background: url("../images/yourName.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.fullBook{
+    background: url("../images/book.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.movie{
+    background: url("../images/pew.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+
+/* NavBar CSS*/
+
+nav > span.brand{
+    background-color: lightgreen;
+    color: crimson;
+}
+
+.nav-pills > li > a.active {
+    background-color: crimson!important;
+}
+
+.nav-pills > li > a {
+    background-color: white!important;
+    border: 1px solid black;
+    color: crimson;
+    transition: .5s ease;
+}
+
+.nav-pills > li > a:hover {
+    background-color: crimson!important;
+    border: 1px solid black;
+    color: white;
+}
+
+/* Misc. CSS */
+.withNav{
+    padding-top: 80px;
+}
+form{
+    overflow:hidden;
+}
+.inline{
+    display:inline-block;
+}
+.left {
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
+.titleTron{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid lightgreen;
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTron:hover{
+    border: 5px solid green;
+    background-color: white;
+}
+
+.titleTronTomato{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid rgb(250,128,114);
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronTomato:hover{
+    border: 5px solid rgb(218, 21, 60);
+    background-color: white;
+}
+
+.titleTronBasket{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid rgb(255,222,173);
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronBasket:hover{
+    border: 5px solid  	rgb(222,184,135);
+    background-color: white;
+}
+
+.titleTronBook{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid cyan ;
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronBook:hover{
+    border: 5px solid  	rgb(153, 0, 255);
+    background-color: white;
+}
+
+.titleTronMovie{
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border:5px solid gray ;
+    text-align:center;
+    transition: 1s ease;
+    padding: 10px;
+}
+
+.titleTronMovie:hover{
+    border: 5px solid  	black;
+    background-color: white;
+}
+.teamName{
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid lightgreen;
+    transition: .5s ease;
+}
+.teamName:hover{
+    border-bottom: 4px solid green;
+}
+
+.fillIn{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+.fillIn:hover, .fillIn:focus{
+    box-shadow: inset 0 0 0 4em pink;
+    color: #333;
+}
+
+.merge{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.merge:hover, .merge:focus{
+    box-shadow: inset 8em 0 0 0 lightgreen,
+        inset -8em 0 0 0 lightgreen;
+        color: #333;
+}
+
+.back{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+
+.back:hover, .back:focus{
+    box-shadow:inset -10em 0 0 0 crimson;
+    color: white;
+}
+
+.upFill{
+    display: block;
+    transition: 1s ease;
+    -webkit-transition: 1s ease;
+}
+.upFill:hover, .upFill:focus{
+    box-shadow: inset 0 -8em 0 0 pink;
+    color: #333;
+}
+/* Flash messages */
+.flash{
+    font-weight:bold;
+    text-align:center;
+}
+
+/* ========================================================= */
