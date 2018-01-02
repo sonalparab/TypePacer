@@ -3,3 +3,6 @@ Xavier Chen, Sonal Parab, Gordon Lei, Adrian Boylan
 Period 8 Software Development Project 02
 
 Devlog:
+gordonL -- 2018-01-03 03:52:34
+added folders, log.py, db_builder.py, script for devlog, and css files
+
