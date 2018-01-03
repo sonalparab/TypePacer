@@ -1,42 +1,71 @@
 import sqlite3, hashlib   #enable control of an sqlite database
 
-f="story.db"
 
-def encrypt_password(password):
+def encrypt(password):
     encrypted_pass = hashlib.sha1(password.encode('utf-8')).hexdigest()
-    #print encrypted_pass
     return encrypted_pass
 
-db = sqlite3.connect(f, check_same_thread=False) #open if f exists, otherwise create
-db.create_function('encrypt', 1, encrypt_password)
-c = db.cursor()    #facilitate db ops
+def createTables():
+    db=sqlite3.connect("data/accounts.db")
+    c=db.cursor()
 
-create_users = "CREATE TABLE users (username TEXT PRIMARY KEY, password TEXT NOT NULL);"
-create_history = "CREATE TABLE history (username TEXT NOT NULL, id INTEGER NOT NULL, contribution TEXT);"
-create_stories = "CREATE TABLE stories (id INTEGER PRIMARY KEY, title TEXT, fullstory TEXT NOT NULL, previousupdate TEXT NOT NULL);"
+    c.execute("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='accounts';")
+    bol = c.fetchone()
+    counter = 0
+    if bol == 0:
+        counter = 1
+    if bol == 1:
+        c.execute("SELECT COUNT(id) FROM accounts;")
+        counter = c.fetchone()
+        counter = int(counter[0]) + 1
 
-insert_admin = "INSERT INTO users VALUES ('test', encrypt('test'));"
-insert_history = "INSERT INTO history VALUES ('test', 0, 'This is the first line of the sample story.');"
-insert_stories = "INSERT INTO stories VALUES (0, 'Sample Story', 'This is the first line of the sample story.', 'This is the first line of the sample story.');"
+    createAccount = "CREATE TABLE IF NOT EXISTS accounts (id INTEGER NOT NULL, username TEXT NOT NULL, pass TEXT NOT NULL);"
+    createLeaderboad = "CREATE TABLE IF NOT EXISTS leaderboard (id INTEGER NOT NULL, username TEXT NOT NULL, wpm INTEGER NOT NULL);"
+    c.execute(createAccount)
+    c.execute(createLeaderboad)
+    #print "INSERT INTO accounts VALUES (?,?,?)", (counter,'test',encrypted)
+    
+    #dummy execution 
+    #c.execute("INSERT INTO accounts VALUES (?,?,?)", (counter,'test',encrypt('dummyPass')))
+    db.commit()
+    db.close()
 
-#insert_admin0 = "INSERT INTO users VALUES ('test', encrypt('test'));"
-#insert_history0 = "INSERT INTO history VALUES ('test0', 0, 'hi0');"
-#insert_history1 = "INSERT INTO history VALUES ('test0', 1, 'new');"
-#insert_newstory = "INSERT INTO stories VALUES (1, 'new title', 'new', 'new')"
+#create dict of usernames and passwords
+def user_dict():
+    db=sqlite3.connect("data/accounts.db")
+    c=db.cursor()
+    users = {} #{username: password}
+    user_data = c.execute("SELECT * FROM accounts;")
+    for data in user_data:
+        users[data[0]] = data[1]
+    db.commit()
+    db.close()
+    return users
 
-try:
-    c.execute(create_users)
-    c.execute(create_history)
-    c.execute(create_stories)
-    c.execute(insert_admin)
-    c.execute(insert_history)
-    c.execute(insert_stories)
-    #c.execute(insert_admin0)
-    #c.execute(insert_history0)
-    #c.execute(insert_newstory)
-    #c.execute(insert_history1)
-except:
-    pass
+#create dict of edit history
+def leaderboard_dict():
+    db=sqlite3.connect("data/accounts.db")
+    c=db.cursor()
+    leaderboard = {} #{id: {username: contribution}}
+    leaderboard_data = c.execute("SELECT * FROM leaderboard;")
+    for data in leaderboard_data:
+        leaderboard[data[0]] = data[1]
+    db.commit()
+    db.close()
+    return leaderboard
 
-db.commit() #save changes
-#db.close()  #close database
+def insertAccount(username, password):
+    db=sqlite3.connect("data/accounts.db")
+    c=db.cursor()
+    c.execute("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='accounts';")
+    bol = c.fetchone()[0]
+    counter = 0
+    if bol == 0:
+        counter = 1
+    if bol == 1:
+        c.execute("SELECT COUNT(id) FROM accounts;")
+        counter = c.fetchone()
+        counter = int(counter[0]) + 1
+    c.execute("INSERT INTO accounts VALUES (?,?, ?)", (counter,username, encrypt(password)))
+    db.commit()
+    db.close()
