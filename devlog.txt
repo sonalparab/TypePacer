@@ -9,3 +9,6 @@ added folders, log.py, db_builder.py, script for devlog, and css files
 chenX -- 2018-01-03 13:21:16
 added templates
 
+gordonL -- 2018-01-04 04:02:20
+added database/creation of accounts. Able to create database in data folder
+
