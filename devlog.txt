@@ -9,9 +9,11 @@ added folders, log.py, db_builder.py, script for devlog, and css files
 chenX -- 2018-01-03 13:21:16
 added templates
 
-gordonL -- 2018-01-04 04:02:20
+gordonL -- 2018-01-03 13:02:20
 added database/creation of accounts. Able to create database in data folder
 
 chenX -- 2018-01-03 13:58:50
 added testing files
 
+gordonL -- 2018-01-03 14:29:24
+added checking if account already exists + flashing messages + hashing passwords
