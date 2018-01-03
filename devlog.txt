@@ -6,3 +6,6 @@ Devlog:
 gordonL -- 2018-01-03 03:52:34
 added folders, log.py, db_builder.py, script for devlog, and css files
 
+chenX -- 2018-01-03 13:21:16
+added templates
+
