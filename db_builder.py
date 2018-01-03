@@ -37,7 +37,7 @@ def user_dict():
     users = {} #{username: password}
     user_data = c.execute("SELECT * FROM accounts;")
     for data in user_data:
-        users[data[0]] = data[1]
+        users[data[1]] = data[2]
     db.commit()
     db.close()
     return users
@@ -49,7 +49,7 @@ def leaderboard_dict():
     leaderboard = {} #{id: {username: contribution}}
     leaderboard_data = c.execute("SELECT * FROM leaderboard;")
     for data in leaderboard_data:
-        leaderboard[data[0]] = data[1]
+        leaderboard[data[1]] = data[2]
     db.commit()
     db.close()
     return leaderboard

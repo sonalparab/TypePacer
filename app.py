@@ -18,11 +18,6 @@ BAD_USER = -2
 
 # Methods
 
-#encrypts password
-def encrypt_password(password):
-    encrypted_pass = hashlib.sha1(password.encode('utf-8')).hexdigest()
-    return encrypted_pass
-
 #authenticate username and password
 def authenticate(username, password):
     users = db_builder.user_dict()
@@ -37,6 +32,7 @@ def authenticate(username, password):
 #check if username already exists
 def check_newuser(username):
     users = db_builder.user_dict()
+    print users
     if username in users.keys():
         return BAD_USER
     return SUCCESS
@@ -73,7 +69,7 @@ def logout():
 def auth():
     username = request.form['user']
     password = request.form['pw']
-    encrypted = db_builder.encrypt_password(password)
+    encrypted = db_builder.encrypt(password)
     result = authenticate(username, encrypted)
     if result == SUCCESS:
         session['user'] = username
@@ -81,7 +77,7 @@ def auth():
     if result == BAD_PASS:
         flash("Incorrect password.")
     elif result == BAD_USER:
-        flash("Incorrect Username.")
+        flash("Incorrect Username or the Username does not exist.")
     return redirect(url_for('root'))
 
 @app.route('/createaccount', methods=['POST', 'GET'])
@@ -97,7 +93,7 @@ def create_account():
         flash(username + " registered.")
     elif result == BAD_USER:
         flash("That username is already in use. Try another one")
-        return redirect(url_for('register'))
+        return redirect(url_for('root'))
     return redirect(url_for('root'))
 
 
