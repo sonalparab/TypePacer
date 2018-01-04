@@ -17,3 +17,6 @@ added testing files
 
 gordonL -- 2018-01-03 14:29:24
 added checking if account already exists + flashing messages + hashing passwords
+
+parabS -- 2018-01-03 15:03:26
+added quote API calls
