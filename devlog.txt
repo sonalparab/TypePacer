@@ -23,3 +23,6 @@ added quote API calls
 chenX -- 2018-01-03 22:56:34
 worked on typing game
 
+chenX -- 2018-01-05 23:04:25
+Implemented WPM
+

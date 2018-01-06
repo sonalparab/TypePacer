@@ -1,28 +1,33 @@
-thing = document.getElementById('typing').innerHTML;
-console.log(thing);
-listThing = thing.split(" ");
-console.log(listThing);
+prompt = document.getElementById('typing').innerHTML;
+console.log(prompt);
+promptNumWords = prompt.split(" ");
+console.log(promptNumWords);
 //n is counter for the array of words in the prompt
-n = 0;
-
+var n = 0;
+var start;
 
 var toCheck = function() {
     //inputThing gets the text boxes text
     inputThing = document.getElementById('inputText').value;
-    //if finished the prompt, alerts the user and sets the index to -1 to prevent infinite loop
-    if (n === listThing.length) {
-      alert('congratz');
+    //if finished the prompt and sets the index to -1 to prevent infinite loop
+    if (n === promptNumWords.length) {
       n = -1;
     }
-    //tracks the word the user needs to type, if it equals -1, it shows Finished!
-    if (n != -1) {
-      document.getElementById('wordUpTo').innerHTML = listThing[n];
+
+    if (n >= 0) {
+      document.getElementById('wordUpTo').innerHTML = promptNumWords[n];
+    }
+    else if(n === -1){
+      var elapsed = (new Date().getTime() - start) / 1000;
+      var wpm = Math.floor((prompt.length/5) / (elapsed/60));
+      document.getElementById('wpm').innerHTML = wpm;
+      n = -2;
     }
     else{
-      document.getElementById('wordUpTo').innerHTML = "Finished!";
+        document.getElementById('wordUpTo').innerHTML = "Finished!";
     }
     //if textbox matches the word, it clears the textbox, raises the word array counter
-    if ((listThing[n] + " ") === inputThing){
+    if ((promptNumWords[n] + " ") === inputThing){
       document.getElementById('inputText').value = "";
       n++;
       console.log("yay!");
@@ -36,4 +41,6 @@ function getTextBox(){
     return inputThing;
 };
 
-console.log(thing[3]);
+$('#inputText').one("keyup", function(){
+   start = new Date().getTime();
+});
