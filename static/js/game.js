@@ -1,7 +1,13 @@
 var prompt = document.getElementById('typing').innerHTML;
 console.log(prompt);
 var promptNumWords = prompt.split(" ");
+//removes elements with nothing in them
+while($.inArray("", promptNumWords) != -1){
+  promptNumWords.splice($.inArray("", promptNumWords), 1);
+}
+console.log(promptNumWords.indexOf(""));
 console.log(promptNumWords);
+
 //n is counter for the array of words in the prompt
 var n = 0;
 var start;

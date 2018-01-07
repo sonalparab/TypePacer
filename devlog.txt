@@ -29,3 +29,6 @@ Implemented WPM
 chenX -- 2018-01-06 20:02:45
 added game to the app
 
+chenX -- 2018-01-06 20:31:57
+bug fixes
+
