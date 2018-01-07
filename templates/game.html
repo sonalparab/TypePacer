@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content1 %}
+    Welcome {{user}}!
+    <br>
+    WPM: <div id="wpm"> </div>
+    <br>
+    <div id="typing">{{typing}}</div>
+    <input type="textbox" id="inputText"> </input>
+    <div id="wordUpTo"> </div>
+    <br>
+    <br>
+    <p> Remember to press space at the very end! </p>
+    <script type="text/javascript" src="static/js/game.js"></script>
+{% endblock %}

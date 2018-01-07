@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
-import os, sqlite3, hashlib
+import os, sqlite3, hashlib, json, requests, sys
 import db_builder
 
 #THIS FIXES ENCODE ERROR
-import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 #===
@@ -47,13 +46,27 @@ def root():
     else:
         return redirect( url_for('welcome') )
 
+#Get the quote from the api
+def getQuote():
+    prompt = ""
+    for x in range(0,3):
+        url = "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en&?sig=" + str(x)
+        r = requests.get(url)
+        #r2 fixes errors about invalid escape characters
+        r2 = r.text.replace('\\', '');
+        d = json.loads(r2)
+        #print d
+        prompt += d["quoteText"] + " "
+        #sometimes there are double spaces at the end of sentences so prompt.replace just fixes that
+    return prompt.replace("  ", " ")
+
 @app.route('/welcome', methods=['POST', 'GET'])
 #welcomes user or redirects back to root if logged out
 def welcome():
     if 'user' not in session:
         return redirect( url_for('root') )
     else:
-        return render_template('welcome.html', user=session['user'], title='Welcome')
+        return render_template('game.html', user=session['user'], title='Welcome', typing=getQuote())
 
 @app.route('/logout', methods=['POST', "get"])
 #removes user from session
@@ -100,4 +113,3 @@ def create_account():
 if __name__ == '__main__':
     app.debug = True
     app.run()
-

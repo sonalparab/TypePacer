@@ -1,6 +1,6 @@
-prompt = document.getElementById('typing').innerHTML;
+var prompt = document.getElementById('typing').innerHTML;
 console.log(prompt);
-promptNumWords = prompt.split(" ");
+var promptNumWords = prompt.split(" ");
 console.log(promptNumWords);
 //n is counter for the array of words in the prompt
 var n = 0;
