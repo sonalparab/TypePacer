@@ -20,6 +20,7 @@ added checking if account already exists + flashing messages + hashing passwords
 
 parabS -- 2018-01-03 15:03:26
 added quote API calls
+
 chenX -- 2018-01-03 22:56:34
 worked on typing game
 
@@ -31,4 +32,8 @@ added game to the app
 
 chenX -- 2018-01-06 20:31:57
 bug fixes
+
+parabS -- 2018-01-09 18:35:26
+coloring the current word
+
 
