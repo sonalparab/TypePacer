@@ -129,7 +129,11 @@ def leaderboard():
         db.commit()
         db.close()
         return render_template('leaderboard.html', user=session['user'], title='Welcome', tupleList = tupleList)
+        
+@app.errorhandler(500)
+def page_not_found(e):
+    return redirect(url_for('welcome'))
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run()
