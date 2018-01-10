@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os, sqlite3, hashlib, json, requests, sys
 import db_builder
@@ -57,6 +58,7 @@ def getQuote():
         d = json.loads(r2)
         #print d
         prompt += d["quoteText"] + " "
+    	prompt = prompt.replace("â€™", "'");
         #sometimes there are double spaces at the end of sentences so prompt.replace just fixes that
     return prompt.replace("  ", " ")
 
