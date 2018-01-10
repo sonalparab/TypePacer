@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content1 %}
+    <a href = "/"> Go back to homepage </a>
+    <table class = "table">
+        <thead>
+            <th scope="col"> # </th>
+            <th scope="col"> Name </th>
+            <th scope="col"> WPM </th>
+        </thead>
+        <tbody>
+            {% for each in tupleList %}
+                <tr>
+                    <th scope ="row"> {{each[0]}} </th>
+                    <th> {{each[1]}} </th>
+                    <th> {{each[2] / each[3]}} </th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}

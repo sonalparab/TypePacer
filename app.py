@@ -109,6 +109,24 @@ def create_account():
         return redirect(url_for('root'))
     return redirect(url_for('root'))
 
+@app.route('/leaderboard', methods=['POST', 'GET'])
+#look at leaderboard
+def leaderboard():
+    db=sqlite3.connect("data/accounts.db")
+    c=db.cursor()
+    db_builder.refreshLeaderboard()
+    #db_builder.updateLeaderboard("a",400)
+    leaderboard_data = c.execute("SELECT * FROM leaderboard;")
+    tupleList = c.fetchall()
+    if 'user' not in session:
+        db.commit()
+        db.close()
+        return redirect( url_for('root') )
+    else:
+        leaderboard_data = c.execute("SELECT * FROM leaderboard;")
+        db.commit()
+        db.close()
+        return render_template('leaderboard.html', user=session['user'], title='Welcome', tupleList = tupleList)
 
 if __name__ == '__main__':
     app.debug = True
