@@ -55,6 +55,19 @@ var toCheck = function() {
       var wpm = Math.floor((prompt.length/5) / (elapsed/60));
       document.getElementById('wpm').innerHTML = wpm;
       n = -2;
+      //UPDATE LEADERBOARD
+      $.ajax({
+        type: "POST",
+        url: '/update',
+        data: jQuery.param({ newWPM: wpm, 
+            current : "" + document.getElementById('user').innerHTML}) ,
+            success: function(data){
+                console.log("success");
+            },
+            error: function(data){
+                console.log("oof doesnt work");
+            }
+    });
     }
     else{
         document.getElementById('wordUpTo').innerHTML = "Finished!";

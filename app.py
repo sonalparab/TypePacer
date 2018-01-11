@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os, sqlite3, hashlib, json, requests, sys
 import db_builder
@@ -44,6 +43,8 @@ def check_newuser(username):
 def root():
     if 'user' not in session:
         return render_template('login.html', title="Login")
+    elif ('current' in request.form): 
+        db_builder.updateLeaderboard(request.form['current'], request.form['newWPM'])
     else:
         return redirect( url_for('welcome') )
 
@@ -58,7 +59,6 @@ def getQuote():
         d = json.loads(r2)
         #print d
         prompt += d["quoteText"] + " "
-    	prompt = prompt.replace("â€™", "'");
         #sometimes there are double spaces at the end of sentences so prompt.replace just fixes that
     return prompt.replace("  ", " ")
 
@@ -120,20 +120,29 @@ def leaderboard():
     #db_builder.updateLeaderboard("a",400)
     leaderboard_data = c.execute("SELECT * FROM leaderboard;")
     tupleList = c.fetchall()
+    print tupleList;
     if 'user' not in session:
         db.commit()
         db.close()
         return redirect( url_for('root') )
     else:
-        leaderboard_data = c.execute("SELECT * FROM leaderboard;")
         db.commit()
         db.close()
         return render_template('leaderboard.html', user=session['user'], title='Welcome', tupleList = tupleList)
-        
+
 @app.errorhandler(500)
 def page_not_found(e):
     return redirect(url_for('welcome'))
 
+@app.route('/update', methods=['POST', 'GET'])
+#creates an account and runs encryption function on password
+def update():
+    print 'current' in request.form
+    username = request.form['current']
+    wpm = request.form['newWPM']
+    db_builder.updateLeaderboard(username,wpm)
+    return redirect(url_for('welcome'))
+
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run()
