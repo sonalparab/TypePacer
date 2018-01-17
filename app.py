@@ -144,7 +144,10 @@ def profile():
     db.commit()
     db.close()
     print stuff
-    avg = stuff[2] / stuff[3]
+    if stuff[3] > 0:
+    	avg = stuff[2] / stuff[3]
+    else:
+    	avg = 0
     return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
     
     
