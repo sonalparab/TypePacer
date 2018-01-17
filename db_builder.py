@@ -99,10 +99,10 @@ def updateLeaderboard(username, wpm):
     c.execute("SELECT totalWPM, games, highestWPM FROM leaderboard WHERE username = {}".format("'"+str(username)+"'"))
     tupleElement =  c.fetchone()
     print tupleElement[0] + int(wpm)
-    if tupleElement[2] < wpm:
+    if tupleElement[2] < int(wpm):
         c.execute("UPDATE leaderboard set totalWPM = {0}, games = {1}, highestWPM = {3} WHERE username = {2}".format(tupleElement[0] + int(wpm), tupleElement[1] + 1, "'"+str(username)+"'", int(wpm)))
     else:
-        c.execute("UPDATE leaderboard set totalWPM = {0}, games = {1} WHERE username = {2}".format(tupleElement[0] + int(wpm), tupleElement[1] + 1, "'"+str(username)+"'"))
+       c.execute("UPDATE leaderboard set totalWPM = {0}, games = {1}, highestWPM = {3} WHERE username = {2}".format(tupleElement[0] + int(wpm), tupleElement[1] + 1, "'"+str(username)+"'", tupleElement[2]))
     
     
     c.execute("SELECT * FROM leaderboard;")
