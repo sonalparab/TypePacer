@@ -133,9 +133,24 @@ def leaderboard():
         db.close()
         return render_template('leaderboard.html', user=session['user'], title='Welcome', tupleList = tupleList)
 
-@app.errorhandler(500)
-def page_not_found(e):
-    return redirect(url_for('welcome'))
+@app.route('/profile', methods=['POST', 'GET'])
+def profile():
+    db = sqlite3.connect("data/accounts.db")
+    c = db.cursor()
+    #db_builder.refreshLeaderBoard()
+    c.execute("SELECT * FROM leaderboard WHERE username = '"+ session['user'] + "';")
+    stuff = c.fetchall()[0]
+    #highestWPM = c.execute("SELECT highestWPM FROM leaderboard WHERE username = '%"+ session['user'] + "%';")
+    db.commit()
+    db.close()
+    print stuff
+    avg = stuff[2] / stuff[3]
+    return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
+    
+    
+#app.errorhandler(500)
+#def page_not_found(e):
+#   return redirect(url_for('welcome'))
 
 @app.route('/update', methods=['POST', 'GET'])
 #creates an account and runs encryption function on password
@@ -147,5 +162,5 @@ def update():
     return redirect(url_for('welcome'))
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run()
