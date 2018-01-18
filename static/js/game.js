@@ -70,7 +70,7 @@ var toCheck = function() {
     });
     }
     else{
-        document.getElementById('wordUpTo').innerHTML = "Finished!";
+        document.getElementById('wordUpTo').innerHTML = 'Finished! If you want to play again click the refresh button';
     }
 
     //make a list of all the characters in the current word
