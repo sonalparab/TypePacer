@@ -40,7 +40,9 @@ gordonL -- 2018-01-09 23:18:53
 made leaderboard that can be updated + leaderboard template
 
 parabS -- 2018-01-10 19:27:35
-coloring the textbox if an incorrect character was typedgordonL -- 2018-01-10 21:44:20
+coloring the textbox if an incorrect character was typed
+
+gordonL -- 2018-01-10 21:44:20
 leaderboard should be fully functional
 
 gordonL -- 2018-01-10 22:32:44
@@ -48,4 +50,7 @@ fixed major bug with leaderboards
 
 chenX -- 2018-01-17 13:18:02
 finished profile
+
+parabS -- 2018-01-18 18:18:09
+added play again button
 
