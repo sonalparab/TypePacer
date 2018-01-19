@@ -63,6 +63,7 @@ def getQuote():
         #sometimes there are double spaces at the end of sentences so prompt.replace just fixes that
         prompt = prompt.replace("â€™", "'")
         prompt = prompt.replace("â€”", "--")
+        prompt = prompt.replace("—", "--")
     return prompt.replace("  ", " ")
 
 @app.route('/welcome', methods=['POST', 'GET'])
@@ -151,9 +152,9 @@ def profile():
     return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
     
     
-#app.errorhandler(500)
-#def page_not_found(e):
-#   return redirect(url_for('welcome'))
+app.errorhandler(500)
+def page_not_found(e):
+   return redirect(url_for('welcome'))
 
 @app.route('/update', methods=['POST', 'GET'])
 #creates an account and runs encryption function on password
@@ -165,5 +166,5 @@ def update():
     return redirect(url_for('welcome'))
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run()

@@ -57,3 +57,6 @@ added login css
 parabS -- 2018-01-18 18:18:09
 added play again button
 
+chenX -- 2018-01-19 13:41:30
+bug fixes
+
