@@ -71,7 +71,7 @@ var toCheck = function() {
             }
         });
     } else {
-        document.getElementById('wordUpTo').innerHTML = 'Finished! If you want to play again click the button below';
+        document.getElementById('wordUpTo').innerHTML = 'Finished! If you want to play again click the "Play Again" button.';
     }
 
     //make a list of all the characters in the current word

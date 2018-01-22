@@ -442,6 +442,7 @@ form {
     background: url(" ../images/lakeside.png ");
     background-attachment: fixed;
     background-size: 100% 100%;
+    padding-top: 0;
 }
 
 .mountains {
