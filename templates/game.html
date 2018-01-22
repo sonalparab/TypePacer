@@ -1,6 +1,18 @@
 {% extends "base.html" %} {% block content1 %}
 
 <body class="lakeside">
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BlackPants</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+    </nav>
     <div class="boxGreen">
         <div class="teamName">
             <h2>Welcome <span id="user">{{user}}</span>!</h2>
@@ -30,13 +42,6 @@
 
         <script type="text/javascript" src="static/js/game.js"></script>
     </div>
-    <p> leaderboard:
-        <a href="/leaderboard"> leaderboard </a>
-
-    </p>
-    <p> profile:
-        <a href="/profile"> profile </a>
-    </p>
 </body>
 
 

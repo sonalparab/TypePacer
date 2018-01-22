@@ -1,8 +1,18 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% block body %}
 
-
-{% block body %}
-  <body class = "root">
+<body class = "root">
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BlackPants</a>
+      </div>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+    </nav>
       <img style="width: 240px; display: block; margin: 0 auto;" src = "{{ url_for('static',filename='images/tacoCat.png') }}">
       <div class = "accountBox">
       <form method="POST" action="/createaccount">
