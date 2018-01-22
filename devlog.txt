@@ -60,3 +60,6 @@ added play again button
 chenX -- 2018-01-19 13:41:30
 bug fixes
 
+gordonL -- 2018-01-21 22:10:33
+somewhat big css changes. added backgrounds + borders
+

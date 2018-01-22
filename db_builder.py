@@ -76,7 +76,7 @@ def takeID(username):
     c=db.cursor()
     c.execute("SELECT id, username FROM leaderboard;")
     tupleList =  c.fetchall()
-    print tupleList
+    #print tupleList
     for each in tupleList:
         if each[1] == username:
             return each[0]
@@ -98,7 +98,7 @@ def updateLeaderboard(username, wpm):
     c=db.cursor()
     c.execute("SELECT totalWPM, games, highestWPM FROM leaderboard WHERE username = {}".format("'"+str(username)+"'"))
     tupleElement =  c.fetchone()
-    print tupleElement[0] + int(wpm)
+    #print tupleElement[0] + int(wpm)
     if tupleElement[2] < int(wpm):
         c.execute("UPDATE leaderboard set totalWPM = {0}, games = {1}, highestWPM = {3} WHERE username = {2}".format(tupleElement[0] + int(wpm), tupleElement[1] + 1, "'"+str(username)+"'", int(wpm)))
     else:
@@ -117,10 +117,10 @@ def updateLeaderboard(username, wpm):
 
     for oldEach in newList:
         each = newList[counter - 1]
-        print "old", oldEach
-        print "compare: ", each, " ", oldEach
+        #print "old", oldEach
+        #print "compare: ", each, " ", oldEach
         if each[1] != oldEach[1]:
-            print "UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4])
+            #print "UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4])
             c.execute("UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4]))
         counter = counter + 1
     db.commit()
@@ -136,16 +136,16 @@ def refreshLeaderboard():
     c.execute("SELECT * FROM leaderboard;")
     boardList = c.fetchall()
     newList.sort(reverse = True, key=takeWPM)
-    print "LOOK HERE SORTED:", newList
-    print "LOOK HERE OLDLIST", boardList
+    #print "LOOK HERE SORTED:", newList
+    #print "LOOK HERE OLDLIST", boardList
     counter = 1;
 
     for each in newList:
         oldEach = boardList[counter-1]
-        print "old", oldEach
-        print "compare: ", each, " ", oldEach
+        #print "old", oldEach
+        #print "compare: ", each, " ", oldEach
         if each[1] != oldEach[1]:
-            print "UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4])
+            #print "UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4])
             c.execute("UPDATE leaderboard set username = {1}, totalWPM = {2}, games = {3}, highestWPM = {4} WHERE id = {0};".format(counter,"'"+str(each[1])+"'", each[2], each[3], each[4]))
         counter = counter + 1
     db.commit()

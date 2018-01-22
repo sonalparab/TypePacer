@@ -138,18 +138,23 @@ def leaderboard():
 def profile():
     db = sqlite3.connect("data/accounts.db")
     c = db.cursor()
+    if 'user' not in session:
+        db.commit()
+        db.close()
+        return redirect( url_for('root') )
     #db_builder.refreshLeaderBoard()
-    c.execute("SELECT * FROM leaderboard WHERE username = '"+ session['user'] + "';")
-    stuff = c.fetchall()[0]
-    #highestWPM = c.execute("SELECT highestWPM FROM leaderboard WHERE username = '%"+ session['user'] + "%';")
-    db.commit()
-    db.close()
-    print stuff
-    if stuff[3] > 0:
-    	avg = stuff[2] / stuff[3]
     else:
-    	avg = 0
-    return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
+        c.execute("SELECT * FROM leaderboard WHERE username = '"+ session['user'] + "';")
+        stuff = c.fetchall()[0]
+        #highestWPM = c.execute("SELECT highestWPM FROM leaderboard WHERE username = '%"+ session['user'] + "%';")
+        db.commit()
+        db.close()
+        print stuff
+        if stuff[3] > 0:
+            avg = stuff[2] / stuff[3]
+        else:
+            avg = 0
+        return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
     
     
 app.errorhandler(500)
@@ -166,5 +171,5 @@ def update():
     return redirect(url_for('welcome'))
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run()
