@@ -1,23 +1,43 @@
-{% extends "base.html" %}
-{% block content1 %}
-    Welcome <span id = "user">{{user}}</span>!
-    <br>
-    WPM: <div id="wpm"> </div>
-    <br>
-    <span id="typed"></span><span id="typing">{{typing}}</span><br>
-    <input type="textbox" id="inputText"> </input>
-    <div id="wordUpTo"> </div>
-    <br>
-    <br>
-    <p> Remember to press space at the very end! </p>
-    <script type="text/javascript" src="static/js/game.js"></script>
+{% extends "base.html" %} {% block content1 %}
 
-    <p> leaderboard: 
-        <a href = "/leaderboard"> leaderboard </a>
+<body class="lakeside">
+    <div class="boxGreen">
+        <div class="teamName">
+            <h2>Welcome <span id="user">{{user}}</span>!</h2>
+            <br>
+        </div>
+        <h3 style="text-align:center">WPM:
+            <div id="wpm"> </div>
+        </h3>
+        <form action="/">
+            <input type="submit" value="Play Again"></input>
+        </form>
+        <br>
+        <h3 style="text-align:center"> Remember to press space to continue onto the next word and at the end! </h3>
+    </div>
+
+    <div class="boxViolet">
+        <h2><span id="typed"></span><span id="typing">{{typing}}</span>
+            <br>
+            <br>
+            <input type="textbox" id="inputText"> </input>
+        </h2>
+        <h2>
+            <div id="wordUpTo"> </div>
+        </h2>
+        <br>
+        <br>
+
+        <script type="text/javascript" src="static/js/game.js"></script>
+    </div>
+    <p> leaderboard:
+        <a href="/leaderboard"> leaderboard </a>
+
     </p>
+    <p> profile:
+        <a href="/profile"> profile </a>
+    </p>
+</body>
 
-    <form action="/">
-    <input type="submit" value="Play Again"></input>
-    </form>
-     
+
 {% endblock %}

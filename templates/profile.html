@@ -1,10 +1,11 @@
-{% extends "base.html" %}
-{% block content1 %}
-<h1> {{user}}</h1>
-<br> 
-Games Played: {{numGames}}
-<br>
-Average WPM: {{avgWPM}}
-<br>
-Highest WPM: {{highestWPM}}
-{% endblock %} 
+{% extends "base.html" %} {% block content1 %}
+
+<body class="firewatch">
+    <div class="boxWood centered">
+        <h1> {{user}}</h1>
+        <br> Games Played: {{numGames}}
+        <br> Average WPM: {{avgWPM}}
+        <br> Highest WPM: {{highestWPM}}
+    </div>
+</body>
+{% endblock %}

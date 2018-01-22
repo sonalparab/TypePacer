@@ -1,33 +1,36 @@
-{% extends "base.html" %}
-{% block content1 %}
-    <a href = "/"> Go back to homepage </a>
-    <h1> Leaderboard Ranked by Fastest Speed Achieved</h1>
-    <table class = "table">
-        <thead>
-            <th scope="col"> # </th>
-            <th scope="col"> Name </th>
-            <th scope="col"> Highest WPM Achieved</th>
-            <th scope="col"> Average WPM </th>
-            <th scope="col"> # of Games </th>
-        </thead>
-        <tbody>
-            {% for each in tupleList %}
+{% extends "base.html" %} {% block content1 %}
+
+<body class="mountains">
+    <a href="/"> Go back to homepage </a>
+    <div class="boxTable">
+        <h1> Leaderboard Ranked by Fastest Speed Achieved</h1>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <th scope="col"> # </th>
+                <th scope="col"> Name </th>
+                <th scope="col"> Highest WPM Achieved</th>
+                <th scope="col"> Average WPM </th>
+                <th scope="col"> # of Games </th>
+            </thead>
+            <tbody>
+                {% for each in tupleList %}
                 <tr>
-                    <th scope ="row"> {{each[0]}} </th>
-                    
+                    <th scope="row"> {{each[0]}} </th>
+
                     <th> {{each[1]}} </th>
                     <th> {{each[4]}} </th>
 
                     {% if (each[3] == 0) %}
-                        <th> 0 </th>
+                    <th> 0 </th>
                     {% else %}
-                        <th> {{each[2] / each[3]}} </th>
+                    <th> {{each[2] / each[3]}} </th>
                     {% endif %}
                     <th> {{each[3]}}</th>
 
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
 {% endblock %}

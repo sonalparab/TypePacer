@@ -1,321 +1,461 @@
 /* General CSS */
-.textField{
+
+.textField {
     border: none;
     border-bottom: solid 3px lightgreen;
     transition: border .5s ease;
 }
 
-.textField:focus{
+.textField:focus {
     border: solid 5px green;
 }
 
-.textField:hover:not(:focus){
+.textField:hover:not(:focus) {
     border-bottom: solid 5px lightgreen;
 }
 
-.textField:not(:focus){
+.textField:not(:focus) {
     border-bottom: solid 3px lightgreen;
 }
 
-.squashButton{
+.squashButton {
     background-color: white;
-    color: crimson; 
+    color: crimson;
     transition: 0.5s ease;
 }
 
-.squashButton:hover, .squashButton:active, .squashButton:focus, .squashButton:active:focus, .squashButton:hover:focus, .squashButton:focus:hover{
+.squashButton:hover,
+.squashButton:active,
+.squashButton:focus,
+.squashButton:active:focus,
+.squashButton:hover:focus,
+.squashButton:focus:hover {
     background-color: crimson;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
-.tomatoImage{
+.tomatoImage {
     width: 40px;
 }
 
-.tomatoButton:hover, .tomatoButton:focus{
+.tomatoButton:hover,
+.tomatoButton:focus {
     transition: .5s ease;
-    background-color:lightgreen;
+    background-color: lightgreen;
     color: white;
 }
 
-.tomatoButton:not(:focus), .tomatoButton:not(:hover){
+.tomatoButton:not(:focus),
+.tomatoButton:not(:hover) {
     border: solid 1px green;
 }
 
+
 /* Pages CSS */
-.login{
+
+.login {
     padding-top: 0px;
     background-color: black;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
 
-.search{
+.search {
     background: url("../images/guilty.jpg");
     background-attachment: fixed;
     background-size: 100% 100%;
 }
 
+
 /* Login CSS */
+
 body {
     padding-top: 90px;
 }
+
 .panel-login {
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    border-color: #ccc;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
 }
+
 .panel-login>.panel-heading {
-	color: #00415d;
-	background-color: #fff;
-	border-color: #fff;
-	text-align:center;
+    color: #00415d;
+    background-color: #fff;
+    border-color: #fff;
+    text-align: center;
 }
-.panel-login>.panel-heading a{
-	text-decoration: none;
-	color: #666;
-	font-weight: bold;
-	font-size: 15px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
+
+.panel-login>.panel-heading a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    font-size: 15px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }
-.panel-login>.panel-heading a.active{
-	color: #029f5b;
-	font-size: 18px;
+
+.panel-login>.panel-heading a.active {
+    color: #029f5b;
+    font-size: 18px;
 }
-.panel-login>.panel-heading hr{
-	margin-top: 10px;
-	margin-bottom: 0px;
-	clear: both;
-	border: 0;
-	height: 1px;
-	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+
+.panel-login>.panel-heading hr {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    clear: both;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
 }
-.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
-	height: 45px;
-	border: 1px solid #ddd;
-	font-size: 16px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
+
+.panel-login input[type="text"],
+.panel-login input[type="email"],
+.panel-login input[type="password"] {
+    height: 45px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    transition: all 0.1s linear;
 }
+
 .panel-login input:hover,
 .panel-login input:focus {
-	outline:none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-	border-color: #ccc;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: #ccc;
 }
+
 .btn-login {
-	background-color: #59B2E0;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #59B2E6;
+    background-color: #59B2E0;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #59B2E6;
 }
+
 .btn-login:hover,
 .btn-login:focus {
-	color: #fff;
-	background-color: #53A3CD;
-	border-color: #53A3CD;
+    color: #fff;
+    background-color: #53A3CD;
+    border-color: #53A3CD;
 }
+
 .forgot-password {
-	text-decoration: underline;
-	color: #888;
+    text-decoration: underline;
+    color: #888;
 }
+
 .forgot-password:hover,
 .forgot-password:focus {
-	text-decoration: underline;
-	color: #666;
+    text-decoration: underline;
+    color: #666;
 }
 
 .btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
+    background-color: #1CB94E;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    text-transform: uppercase;
+    border-color: #1CB94A;
 }
+
 .btn-register:hover,
 .btn-register:focus {
-	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
+    color: #fff;
+    background-color: #1CA347;
+    border-color: #1CA347;
 }
 
 
 /* Misc. CSS */
-.withNav{
+
+.withNav {
     padding-top: 80px;
 }
-form{
-    overflow:hidden;
+
+form {
+    overflow: hidden;
 }
-.inline{
-    display:inline-block;
+
+.inline {
+    display: inline-block;
 }
+
 .left {
-    float:left;
+    float: left;
 }
 
-.right{
-    float:right;
+.right {
+    float: right;
 }
 
-.titleTron{
+.titleTron {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
     font-family: OpenSans-Light;
-    border:5px solid lightgreen;
-    text-align:center;
+    border: 5px solid lightgreen;
+    text-align: center;
     transition: 1s ease;
     padding: 10px;
 }
 
-.titleTron:hover{
+.titleTron:hover {
     border: 5px solid green;
     background-color: white;
 }
 
-.titleTronTomato{
+.titleTronTomato {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
     font-family: OpenSans-Light;
-    border:5px solid rgb(250,128,114);
-    text-align:center;
+    border: 5px solid rgb(250, 128, 114);
+    text-align: center;
     transition: 1s ease;
     padding: 10px;
 }
 
-.titleTronTomato:hover{
+.titleTronTomato:hover {
     border: 5px solid rgb(218, 21, 60);
     background-color: white;
 }
 
-.titleTronBasket{
+.titleTronBasket {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
     font-family: OpenSans-Light;
-    border:5px solid rgb(255,222,173);
-    text-align:center;
+    border: 5px solid rgb(255, 222, 173);
+    text-align: center;
     transition: 1s ease;
     padding: 10px;
 }
 
-.titleTronBasket:hover{
-    border: 5px solid  	rgb(222,184,135);
+.titleTronBasket:hover {
+    border: 5px solid rgb(222, 184, 135);
     background-color: white;
 }
 
-.titleTronBook{
+.titleTronBook {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
     font-family: OpenSans-Light;
-    border:5px solid cyan ;
-    text-align:center;
+    border: 5px solid cyan;
+    text-align: center;
     transition: 1s ease;
     padding: 10px;
 }
 
-.titleTronBook:hover{
-    border: 5px solid  	rgb(153, 0, 255);
+.titleTronBook:hover {
+    border: 5px solid rgb(153, 0, 255);
     background-color: white;
 }
 
-.titleTronMovie{
+.titleTronMovie {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 3px;
     border-radius: 2px;
     margin: auto auto;
     font-family: OpenSans-Light;
-    border:5px solid gray ;
-    text-align:center;
+    border: 5px solid gray;
+    text-align: center;
     transition: 1s ease;
     padding: 10px;
 }
 
-.titleTronMovie:hover{
-    border: 5px solid  	black;
+.titleTronMovie:hover {
+    border: 5px solid black;
     background-color: white;
 }
-.teamName{
+
+.teamName {
     text-align: center;
     font-weight: bold;
     border-bottom: 2px solid lightgreen;
     transition: .5s ease;
 }
-.teamName:hover{
+
+.teamName:hover {
     border-bottom: 4px solid green;
 }
 
-.fillIn{
+.fillIn {
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
-.fillIn:hover, .fillIn:focus{
+
+.fillIn:hover,
+.fillIn:focus {
     box-shadow: inset 0 0 0 4em pink;
     color: #333;
 }
 
-.merge{
+.merge {
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
 
-.merge:hover, .merge:focus{
-    box-shadow: inset 8em 0 0 0 lightgreen,
-        inset -8em 0 0 0 lightgreen;
-        color: #333;
+.merge:hover,
+.merge:focus {
+    box-shadow: inset 8em 0 0 0 lightgreen, inset -8em 0 0 0 lightgreen;
+    color: #333;
 }
 
-.back{
+.back {
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
 
-.back:hover, .back:focus{
-    box-shadow:inset -10em 0 0 0 crimson;
+.back:hover,
+.back:focus {
+    box-shadow: inset -10em 0 0 0 crimson;
     color: white;
 }
 
-.upFill{
+.upFill {
     display: block;
     transition: 1s ease;
     -webkit-transition: 1s ease;
 }
-.upFill:hover, .upFill:focus{
+
+.upFill:hover,
+.upFill:focus {
     box-shadow: inset 0 -8em 0 0 pink;
     color: #333;
 }
+
+
 /* Flash messages */
-.flash{
-    font-weight:bold;
-    text-align:center;
+
+.flash {
+    font-weight: bold;
+    text-align: center;
 }
 
+
 /* ========================================================= */
+
+.boxGreen {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border: 5px solid gray;
+    padding: 10px;
+    transition: 1s ease;
+    border-color: rgb(15, 223, 15);
+    width: 50%;
+}
+
+.boxGreen:hover {
+    border-color: green;
+}
+
+.boxGreen {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border: 5px solid rgb(15, 223, 15);
+    padding: 10px;
+    transition: 1s ease;
+    width: 50%;
+}
+
+.boxGreen:hover {
+    border-color: green;
+}
+
+.boxViolet {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 3px;
+    border-radius: 2px;
+    margin: auto auto;
+    font-family: OpenSans-Light;
+    border: 5px solid red;
+    padding: 10px;
+    transition: 1s ease;
+    width: 75%;
+}
+
+.boxViolet:hover {
+    border-color: rgb(128, 3, 128);
+}
+
+.boxTable {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4px;
+    border: 5px solid cyan;
+    transition: 4s ease;
+}
+
+.boxTable:hover {
+    background-color: white;
+    border-color: blue;
+}
+
+.boxWood {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4px;
+    border: 5px solid rgb(255, 222, 173);
+    transition: 2s ease;
+    text-align: center;
+    width: 25%
+}
+
+.boxWood:hover {
+    background-color: white;
+    border-color: saddlebrown;
+}
+
+.lakeside {
+    background: url(" ../images/lakeside.png ");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.mountains {
+    background: url(" ../images/mountains.png ");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.firewatch {
+    background: url(" ../images/firewatch.png ");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.centered {
+    display: block;
+    margin: auto auto;
+    text-align: center;
+}
