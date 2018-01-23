@@ -15,7 +15,10 @@
     </div>
     </nav>
     <div class="boxGreen">
-        <div class="teamName">
+      <div class="teamName">
+	    {% set messages = get_flashed_messages() %} {% for message in messages %}
+            <h3> {{message}} </h3>
+            {% endfor %}
             <h2>Welcome <span id="user">{{user}}</span>!</h2>
             <br>
         </div>

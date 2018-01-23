@@ -96,7 +96,7 @@ def auth():
     if result == BAD_PASS:
         flash("Incorrect password.")
     elif result == BAD_USER:
-        flash("Incorrect Username or the Username does not exist.")
+        flash("Incorrect username or the username does not exist.")
     return redirect(url_for('root'))
 
 @app.route('/createaccount', methods=['POST', 'GET'])

@@ -111,7 +111,7 @@ var toCheck = function() {
         var textbox = document.getElementById('inputText');
         //if an incorrect character was typed, make the textbox red
         if (!correct) {
-            textbox.style.backgroundColor = "pink";
+            textbox.style.backgroundColor = "red";
             textbox.style.color = "white";
         }
         //if the characters so far are correct, make the textbox white
