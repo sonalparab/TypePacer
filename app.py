@@ -44,7 +44,7 @@ def check_newuser(username):
 def root():
     if 'user' not in session:
         return render_template('login.html', title="Login")
-    elif ('current' in request.form): 
+    elif ('current' in request.form):
         db_builder.updateLeaderboard(request.form['current'], request.form['newWPM'])
     else:
         return redirect( url_for('welcome') )
@@ -155,9 +155,9 @@ def profile():
         else:
             avg = 0
         return render_template('profile.html', user=session['user'], title='Profile', numGames = stuff[3], avgWPM = avg, highestWPM = stuff[4])
-    
-    
-app.errorhandler(500)
+
+
+@app.errorhandler(500)
 def page_not_found(e):
    return redirect(url_for('welcome'))
 
