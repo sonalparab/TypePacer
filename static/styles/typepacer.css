@@ -185,6 +185,15 @@ body {
     border-color: #1CA347;
 }
 
+/* Leaderboard and Profile CSS */
+h1 {
+    font-size: 45px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
 
 /* Misc. CSS */
 

@@ -122,7 +122,7 @@ var toCheck = function() {
     }
 };
 
-setInterval(toCheck, 1);
+setInterval(toCheck, .1);//1);
 
 function getTextBox() {
     inputThing = document.getElementById('inputText').value;
