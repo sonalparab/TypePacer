@@ -63,8 +63,17 @@ bug fixes
 gordonL -- 2018-01-21 22:10:33
 somewhat big css changes. added backgrounds + borders
 
+boylanA -- 2018-01-22 18:05:15
+added navbar
+
 chenX -- 2018-01-22 18:55:14
 fixed stuff
 
+boylanA -- 2018-01-22 19:07:46
+added blackpants_logo.gif
+
 parabS -- 2018-01-23 17:49:23
 fixed flash messages
+
+boylanA -- 2018-01-23 23:09:10
+linked youtube link
