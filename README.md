@@ -1,5 +1,7 @@
 # Black Pants - Typepacer
 ## Xavier Chen, Sonal Parab, Gordon Lei, Adrian Boylan
+### Period 8
+[Watch our demo!](https://youtu.be/Mth7vzNTDOE)
 
 # Description
 Typepacer is a game where users type as fast as they can. Stats are logged into the leaderboards where users can compare themselves to other users. Users can also access the profile page where they see their average WPM (words per minute), highest WPM, and games played.
